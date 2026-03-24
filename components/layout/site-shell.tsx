@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandLogo } from "@/components/layout/brand-logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LANGUAGE_OPTIONS } from "@/lib/constants";
@@ -23,14 +24,8 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center justify-between gap-4">
-              <Link className="flex items-center gap-3" href="/">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-teal text-lg font-black text-white shadow-soft">
-                  KK
-                </div>
-                <div>
-                  <p className="heading-font text-xl font-black text-brand-ink">KawanKerja AI</p>
-                  <p className="text-sm text-slate-600">Youth opportunity navigator</p>
-                </div>
+              <Link className="flex items-center" href="/">
+                <BrandLogo priority />
               </Link>
 
               <div className="rounded-full bg-white/80 px-3 py-2 text-xs font-semibold text-slate-600 lg:hidden">
@@ -91,11 +86,13 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
       <footer className="border-t border-white/50 bg-white/40">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <p>KawanKerja AI is a prototype for opportunity discovery and guided career support.</p>
+          <div className="flex items-center gap-4">
+            <BrandLogo variant="footer" />
+            <p>KawanKerja AI is a prototype for opportunity discovery and guided career support.</p>
+          </div>
           <p>Designed for demo use with local storage and mock AI responses.</p>
         </div>
       </footer>
     </div>
   );
 }
-
